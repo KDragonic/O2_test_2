@@ -21,7 +21,7 @@ function validate(form)
 
 function setTextErrors(input, text)
 {
-	$("#"+input).next(".error").text(text);
+	$("#" + input).after("<p>" + text + "</p>");
 	console.error(input, text);
 }
 
@@ -47,7 +47,7 @@ function send(event)
 					});
 				}
 				else if (data.message == "Запрос выполнен удачно!") SuccessfulExecution();
-                else if (data.massage == "Такая запись уже существует") $(".error").text("Подписка с такой почтой есть");
+                else if (data.massage == "Такая запись уже существует") setTextErrors("email", "Подписка с такой почтой есть");
 			},
 			// error: function(data) { }
 		});
